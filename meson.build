@@ -36,7 +36,7 @@ if media_dep.found()
 endif
 
 inc = include_directories(['sdk/plugin_interface'])
-ticpp_dep = subproject('ticpp').get_variable('ticpp_dep')
+ticpp_dep = dependency('ticpp', fallback : ['ticpp', 'ticpp_dep'])
 
 plugin_interface = static_library('plugin_interface', [
 		'sdk/plugin_interface/xrcconv.cpp',
